@@ -7,10 +7,11 @@
 	<script type="text/javascript">
 		window.onload = function(){
 			//创建一张user数据表，并定义一个DB的jsonDB别名
-			var data = [{username:'张三',sex:'男',birthday:{year:2000,month:6,day:18}},{username:'李红',sex:'女',birthday:{year:1986,month:9,day:22}}];
+			var data1 = '[{"username":"张三","sex":"男","birthday":{"year":2000,"month":6,"day":18}},{"username":"李红","sex":"女","birthday":{"year":1986,"month":9,"day":22}}]';
 			//以下方法可以通过两种方式获取别名，一个是通过init方法获取(推荐)，一个是获取jsonDB()方法的返回值
 			//以后示例中都将使用init()方法创建的别名操作数据
-			var jDB = jsonDB(data,'user').init('DB');
+			var data = JSON.parse(data1);
+            var DB = jsonDB(data,'user').init('DB');
 
 			//插入一条新的数据
 			data = {username:'李想',sex:'男',birthday:{year:1990,month:2,day:15}};
